@@ -1,32 +1,44 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view />
-  </div>
+  <v-app>
+    <v-app-bar app color="cyan" dark>
+      <div class="d-flex align-center">
+        <v-img
+          alt="Kyouky Logo"
+          class="shrink mr-2"
+          contain
+          src="./assets/black-cat.svg"
+          transition="scale-transition"
+          width="40"
+        />
+
+        <router-link to="/">
+          <h1
+            alt="kyouky Name"
+            class="shrink mt-1 hidden-sm-and-down"
+            contain
+            min-width="100"
+          >
+            KYOUKY
+          </h1>
+        </router-link>
+      </div>
+
+      <v-spacer></v-spacer>
+
+      <router-link to="/about">
+        <span class="mr-2">A propos</span>
+        <v-icon>mdi-information</v-icon>
+      </router-link>
+    </v-app-bar>
+
+    <v-main>
+      <router-view />
+    </v-main>
+  </v-app>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+<script>
+export default {
+  name: 'App'
 }
-
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
-</style>
+</script>
